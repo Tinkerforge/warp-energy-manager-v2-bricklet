@@ -82,31 +82,33 @@ void communication_init(void);
 #define FID_GET_ENERGY_METER_DETAILED_VALUES_LOW_LEVEL 2
 #define FID_GET_ENERGY_METER_STATE 3
 #define FID_GET_INPUT 4
-#define FID_SET_OUTPUT 5
-#define FID_GET_OUTPUT 6
-#define FID_GET_INPUT_VOLTAGE 7
-#define FID_GET_UPTIME 8
-#define FID_GET_ALL_DATA_1 9
-#define FID_GET_SD_INFORMATION 10
-#define FID_SET_SD_WALLBOX_DATA_POINT 11
-#define FID_GET_SD_WALLBOX_DATA_POINTS 12
-#define FID_SET_SD_WALLBOX_DAILY_DATA_POINT 13
-#define FID_GET_SD_WALLBOX_DAILY_DATA_POINTS 14
-#define FID_SET_SD_ENERGY_MANAGER_DATA_POINT 15
-#define FID_GET_SD_ENERGY_MANAGER_DATA_POINTS 16
-#define FID_SET_SD_ENERGY_MANAGER_DAILY_DATA_POINT 17
-#define FID_GET_SD_ENERGY_MANAGER_DAILY_DATA_POINTS 18
-#define FID_FORMAT_SD 23
-#define FID_SET_DATE_TIME 24
-#define FID_GET_DATE_TIME 25
-#define FID_GET_DATA_STORAGE 26
-#define FID_SET_DATA_STORAGE 27
-#define FID_RESET_ENERGY_METER_RELATIVE_ENERGY 28
+#define FID_SET_SG_READY_OUTPUT 5
+#define FID_GET_SG_READY_OUTPUT 6
+#define FID_SET_RELAY_OUTPUT 7
+#define FID_GET_RELAY_OUTPUT 8
+#define FID_GET_INPUT_VOLTAGE 9
+#define FID_GET_UPTIME 10
+#define FID_GET_ALL_DATA_1 11
+#define FID_GET_SD_INFORMATION 12
+#define FID_SET_SD_WALLBOX_DATA_POINT 13
+#define FID_GET_SD_WALLBOX_DATA_POINTS 14
+#define FID_SET_SD_WALLBOX_DAILY_DATA_POINT 15
+#define FID_GET_SD_WALLBOX_DAILY_DATA_POINTS 16
+#define FID_SET_SD_ENERGY_MANAGER_DATA_POINT 17
+#define FID_GET_SD_ENERGY_MANAGER_DATA_POINTS 18
+#define FID_SET_SD_ENERGY_MANAGER_DAILY_DATA_POINT 19
+#define FID_GET_SD_ENERGY_MANAGER_DAILY_DATA_POINTS 20
+#define FID_FORMAT_SD 25
+#define FID_SET_DATE_TIME 26
+#define FID_GET_DATE_TIME 27
+#define FID_GET_DATA_STORAGE 28
+#define FID_SET_DATA_STORAGE 29
+#define FID_RESET_ENERGY_METER_RELATIVE_ENERGY 30
 
-#define FID_CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL 19
-#define FID_CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL 20
-#define FID_CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL 21
-#define FID_CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL 22
+#define FID_CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL 21
+#define FID_CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL 22
+#define FID_CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL 23
+#define FID_CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL 24
 
 typedef struct {
 	TFPMessageHeader header;
@@ -150,16 +152,30 @@ typedef struct {
 typedef struct {
 	TFPMessageHeader header;
 	uint8_t output[1];
-} __attribute__((__packed__)) SetOutput;
+} __attribute__((__packed__)) SetSGReadyOutput;
 
 typedef struct {
 	TFPMessageHeader header;
-} __attribute__((__packed__)) GetOutput;
+} __attribute__((__packed__)) GetSGReadyOutput;
 
 typedef struct {
 	TFPMessageHeader header;
 	uint8_t output[1];
-} __attribute__((__packed__)) GetOutput_Response;
+} __attribute__((__packed__)) GetSGReadyOutput_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t output[1];
+} __attribute__((__packed__)) SetRelayOutput;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetRelayOutput;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t output[1];
+} __attribute__((__packed__)) GetRelayOutput_Response;
 
 typedef struct {
 	TFPMessageHeader header;
@@ -413,8 +429,10 @@ BootloaderHandleMessageResponse get_energy_meter_values(const GetEnergyMeterValu
 BootloaderHandleMessageResponse get_energy_meter_detailed_values_low_level(const GetEnergyMeterDetailedValuesLowLevel *data, GetEnergyMeterDetailedValuesLowLevel_Response *response);
 BootloaderHandleMessageResponse get_energy_meter_state(const GetEnergyMeterState *data, GetEnergyMeterState_Response *response);
 BootloaderHandleMessageResponse get_input(const GetInput *data, GetInput_Response *response);
-BootloaderHandleMessageResponse set_output(const SetOutput *data);
-BootloaderHandleMessageResponse get_output(const GetOutput *data, GetOutput_Response *response);
+BootloaderHandleMessageResponse set_sg_ready_output(const SetSGReadyOutput *data);
+BootloaderHandleMessageResponse get_sg_ready_output(const GetSGReadyOutput *data, GetSGReadyOutput_Response *response);
+BootloaderHandleMessageResponse set_relay_output(const SetRelayOutput *data);
+BootloaderHandleMessageResponse get_relay_output(const GetRelayOutput *data, GetRelayOutput_Response *response);
 BootloaderHandleMessageResponse get_input_voltage(const GetInputVoltage *data, GetInputVoltage_Response *response);
 BootloaderHandleMessageResponse get_uptime(const GetUptime *data, GetUptime_Response *response);
 BootloaderHandleMessageResponse get_all_data_1(const GetAllData1 *data);
