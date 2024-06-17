@@ -27,8 +27,6 @@
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
 	const uint8_t length = ((TFPMessageHeader*)message)->length;
 	switch(tfp_get_fid_from_message(message)) {
-		case FID_SET_RGB_VALUE:                              return length != sizeof(SetRGBValue)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_rgb_value(message);
-		case FID_GET_RGB_VALUE:                              return length != sizeof(GetRGBValue)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_rgb_value(message, response);
 		case FID_GET_ENERGY_METER_VALUES:                    return length != sizeof(GetEnergyMeterValues)                 ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_energy_meter_values(message, response);
 		case FID_GET_ENERGY_METER_DETAILED_VALUES_LOW_LEVEL: return length != sizeof(GetEnergyMeterDetailedValuesLowLevel) ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_energy_meter_detailed_values_low_level(message, response);
 		case FID_GET_ENERGY_METER_STATE:                     return length != sizeof(GetEnergyMeterState)                  ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_energy_meter_state(message, response);
@@ -50,8 +48,6 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_FORMAT_SD:                                  return length != sizeof(FormatSD)                             ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : format_sd(message, response);
 		case FID_SET_DATE_TIME:                              return length != sizeof(SetDateTime)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_date_time(message);
 		case FID_GET_DATE_TIME:                              return length != sizeof(GetDateTime)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_date_time(message, response);
-		case FID_SET_LED_STATE:                              return length != sizeof(SetLEDState)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_led_state(message);
-		case FID_GET_LED_STATE:                              return length != sizeof(GetLEDState)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_led_state(message, response);
 		case FID_GET_DATA_STORAGE:                           return length != sizeof(GetDataStorage)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_data_storage(message, response);
 		case FID_SET_DATA_STORAGE:                           return length != sizeof(SetDataStorage)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_data_storage(message);
 		case FID_RESET_ENERGY_METER_RELATIVE_ENERGY:         return length != sizeof(ResetEnergyMeterRelativeEnergy)       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : reset_energy_meter_relative_energy(message);
@@ -59,17 +55,6 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 	}
 }
 
-
-BootloaderHandleMessageResponse set_rgb_value(const SetRGBValue *data) {
-
-	return HANDLE_MESSAGE_RESPONSE_EMPTY;
-}
-
-BootloaderHandleMessageResponse get_rgb_value(const GetRGBValue *data, GetRGBValue_Response *response) {
-	response->header.length = sizeof(GetRGBValue_Response);
-
-	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
-}
 
 BootloaderHandleMessageResponse get_energy_meter_values(const GetEnergyMeterValues *data, GetEnergyMeterValues_Response *response) {
 	response->header.length = sizeof(GetEnergyMeterValues_Response);
@@ -190,17 +175,6 @@ BootloaderHandleMessageResponse set_date_time(const SetDateTime *data) {
 
 BootloaderHandleMessageResponse get_date_time(const GetDateTime *data, GetDateTime_Response *response) {
 	response->header.length = sizeof(GetDateTime_Response);
-
-	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
-}
-
-BootloaderHandleMessageResponse set_led_state(const SetLEDState *data) {
-
-	return HANDLE_MESSAGE_RESPONSE_EMPTY;
-}
-
-BootloaderHandleMessageResponse get_led_state(const GetLEDState *data, GetLEDState_Response *response) {
-	response->header.length = sizeof(GetLEDState_Response);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }

@@ -78,57 +78,35 @@ void communication_init(void);
 #define WARP_ENERGY_MANAGER_V2_STATUS_LED_CONFIG_SHOW_STATUS 3
 
 // Function and callback IDs and structs
-#define FID_SET_RGB_VALUE 1
-#define FID_GET_RGB_VALUE 2
-#define FID_GET_ENERGY_METER_VALUES 3
-#define FID_GET_ENERGY_METER_DETAILED_VALUES_LOW_LEVEL 4
-#define FID_GET_ENERGY_METER_STATE 5
-#define FID_GET_INPUT 6
-#define FID_SET_OUTPUT 7
-#define FID_GET_OUTPUT 8
-#define FID_GET_INPUT_VOLTAGE 9
-#define FID_GET_UPTIME 10
-#define FID_GET_ALL_DATA_1 11
-#define FID_GET_SD_INFORMATION 12
-#define FID_SET_SD_WALLBOX_DATA_POINT 13
-#define FID_GET_SD_WALLBOX_DATA_POINTS 14
-#define FID_SET_SD_WALLBOX_DAILY_DATA_POINT 15
-#define FID_GET_SD_WALLBOX_DAILY_DATA_POINTS 16
-#define FID_SET_SD_ENERGY_MANAGER_DATA_POINT 17
-#define FID_GET_SD_ENERGY_MANAGER_DATA_POINTS 18
-#define FID_SET_SD_ENERGY_MANAGER_DAILY_DATA_POINT 19
-#define FID_GET_SD_ENERGY_MANAGER_DAILY_DATA_POINTS 20
-#define FID_FORMAT_SD 25
-#define FID_SET_DATE_TIME 26
-#define FID_GET_DATE_TIME 27
-#define FID_SET_LED_STATE 28
-#define FID_GET_LED_STATE 29
-#define FID_GET_DATA_STORAGE 30
-#define FID_SET_DATA_STORAGE 31
-#define FID_RESET_ENERGY_METER_RELATIVE_ENERGY 32
+#define FID_GET_ENERGY_METER_VALUES 1
+#define FID_GET_ENERGY_METER_DETAILED_VALUES_LOW_LEVEL 2
+#define FID_GET_ENERGY_METER_STATE 3
+#define FID_GET_INPUT 4
+#define FID_SET_OUTPUT 5
+#define FID_GET_OUTPUT 6
+#define FID_GET_INPUT_VOLTAGE 7
+#define FID_GET_UPTIME 8
+#define FID_GET_ALL_DATA_1 9
+#define FID_GET_SD_INFORMATION 10
+#define FID_SET_SD_WALLBOX_DATA_POINT 11
+#define FID_GET_SD_WALLBOX_DATA_POINTS 12
+#define FID_SET_SD_WALLBOX_DAILY_DATA_POINT 13
+#define FID_GET_SD_WALLBOX_DAILY_DATA_POINTS 14
+#define FID_SET_SD_ENERGY_MANAGER_DATA_POINT 15
+#define FID_GET_SD_ENERGY_MANAGER_DATA_POINTS 16
+#define FID_SET_SD_ENERGY_MANAGER_DAILY_DATA_POINT 17
+#define FID_GET_SD_ENERGY_MANAGER_DAILY_DATA_POINTS 18
+#define FID_FORMAT_SD 23
+#define FID_SET_DATE_TIME 24
+#define FID_GET_DATE_TIME 25
+#define FID_GET_DATA_STORAGE 26
+#define FID_SET_DATA_STORAGE 27
+#define FID_RESET_ENERGY_METER_RELATIVE_ENERGY 28
 
-#define FID_CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL 21
-#define FID_CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL 22
-#define FID_CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL 23
-#define FID_CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL 24
-
-typedef struct {
-	TFPMessageHeader header;
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
-} __attribute__((__packed__)) SetRGBValue;
-
-typedef struct {
-	TFPMessageHeader header;
-} __attribute__((__packed__)) GetRGBValue;
-
-typedef struct {
-	TFPMessageHeader header;
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
-} __attribute__((__packed__)) GetRGBValue_Response;
+#define FID_CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL 19
+#define FID_CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL 20
+#define FID_CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL 21
+#define FID_CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL 22
 
 typedef struct {
 	TFPMessageHeader header;
@@ -411,22 +389,6 @@ typedef struct {
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t pattern;
-	uint16_t hue;
-} __attribute__((__packed__)) SetLEDState;
-
-typedef struct {
-	TFPMessageHeader header;
-} __attribute__((__packed__)) GetLEDState;
-
-typedef struct {
-	TFPMessageHeader header;
-	uint8_t pattern;
-	uint16_t hue;
-} __attribute__((__packed__)) GetLEDState_Response;
-
-typedef struct {
-	TFPMessageHeader header;
 	uint8_t page;
 } __attribute__((__packed__)) GetDataStorage;
 
@@ -447,8 +409,6 @@ typedef struct {
 
 
 // Function prototypes
-BootloaderHandleMessageResponse set_rgb_value(const SetRGBValue *data);
-BootloaderHandleMessageResponse get_rgb_value(const GetRGBValue *data, GetRGBValue_Response *response);
 BootloaderHandleMessageResponse get_energy_meter_values(const GetEnergyMeterValues *data, GetEnergyMeterValues_Response *response);
 BootloaderHandleMessageResponse get_energy_meter_detailed_values_low_level(const GetEnergyMeterDetailedValuesLowLevel *data, GetEnergyMeterDetailedValuesLowLevel_Response *response);
 BootloaderHandleMessageResponse get_energy_meter_state(const GetEnergyMeterState *data, GetEnergyMeterState_Response *response);
@@ -470,8 +430,6 @@ BootloaderHandleMessageResponse get_sd_energy_manager_daily_data_points(const Ge
 BootloaderHandleMessageResponse format_sd(const FormatSD *data, FormatSD_Response *response);
 BootloaderHandleMessageResponse set_date_time(const SetDateTime *data);
 BootloaderHandleMessageResponse get_date_time(const GetDateTime *data, GetDateTime_Response *response);
-BootloaderHandleMessageResponse set_led_state(const SetLEDState *data);
-BootloaderHandleMessageResponse get_led_state(const GetLEDState *data, GetLEDState_Response *response);
 BootloaderHandleMessageResponse get_data_storage(const GetDataStorage *data, GetDataStorage_Response *response);
 BootloaderHandleMessageResponse set_data_storage(const SetDataStorage *data);
 BootloaderHandleMessageResponse reset_energy_meter_relative_energy(const ResetEnergyMeterRelativeEnergy *data);
