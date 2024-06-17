@@ -27,14 +27,14 @@
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
 	const uint8_t length = ((TFPMessageHeader*)message)->length;
 	switch(tfp_get_fid_from_message(message)) {
-		case FID_SET_RGB_VALUE:                              return length != sizeof(SetRGBValue)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_rgb_value(message);
-		case FID_GET_RGB_VALUE:                              return length != sizeof(GetRGBValue)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_rgb_value(message, response);
 		case FID_GET_ENERGY_METER_VALUES:                    return length != sizeof(GetEnergyMeterValues)                 ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_energy_meter_values(message, response);
 		case FID_GET_ENERGY_METER_DETAILED_VALUES_LOW_LEVEL: return length != sizeof(GetEnergyMeterDetailedValuesLowLevel) ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_energy_meter_detailed_values_low_level(message, response);
 		case FID_GET_ENERGY_METER_STATE:                     return length != sizeof(GetEnergyMeterState)                  ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_energy_meter_state(message, response);
 		case FID_GET_INPUT:                                  return length != sizeof(GetInput)                             ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_input(message, response);
-		case FID_SET_OUTPUT:                                 return length != sizeof(SetOutput)                            ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_output(message);
-		case FID_GET_OUTPUT:                                 return length != sizeof(GetOutput)                            ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_output(message, response);
+		case FID_SET_SG_READY_OUTPUT:                        return length != sizeof(SetSGReadyOutput)                     ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_sg_ready_output(message);
+		case FID_GET_SG_READY_OUTPUT:                        return length != sizeof(GetSGReadyOutput)                     ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_sg_ready_output(message, response);
+		case FID_SET_RELAY_OUTPUT:                           return length != sizeof(SetRelayOutput)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_relay_output(message);
+		case FID_GET_RELAY_OUTPUT:                           return length != sizeof(GetRelayOutput)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_relay_output(message, response);
 		case FID_GET_INPUT_VOLTAGE:                          return length != sizeof(GetInputVoltage)                      ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_input_voltage(message, response);
 		case FID_GET_UPTIME:                                 return length != sizeof(GetUptime)                            ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_uptime(message, response);
 		case FID_GET_ALL_DATA_1:                             return length != sizeof(GetAllData1)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_all_data_1(message);
@@ -50,8 +50,6 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_FORMAT_SD:                                  return length != sizeof(FormatSD)                             ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : format_sd(message, response);
 		case FID_SET_DATE_TIME:                              return length != sizeof(SetDateTime)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_date_time(message);
 		case FID_GET_DATE_TIME:                              return length != sizeof(GetDateTime)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_date_time(message, response);
-		case FID_SET_LED_STATE:                              return length != sizeof(SetLEDState)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_led_state(message);
-		case FID_GET_LED_STATE:                              return length != sizeof(GetLEDState)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_led_state(message, response);
 		case FID_GET_DATA_STORAGE:                           return length != sizeof(GetDataStorage)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_data_storage(message, response);
 		case FID_SET_DATA_STORAGE:                           return length != sizeof(SetDataStorage)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_data_storage(message);
 		case FID_RESET_ENERGY_METER_RELATIVE_ENERGY:         return length != sizeof(ResetEnergyMeterRelativeEnergy)       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : reset_energy_meter_relative_energy(message);
@@ -59,17 +57,6 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 	}
 }
 
-
-BootloaderHandleMessageResponse set_rgb_value(const SetRGBValue *data) {
-
-	return HANDLE_MESSAGE_RESPONSE_EMPTY;
-}
-
-BootloaderHandleMessageResponse get_rgb_value(const GetRGBValue *data, GetRGBValue_Response *response) {
-	response->header.length = sizeof(GetRGBValue_Response);
-
-	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
-}
 
 BootloaderHandleMessageResponse get_energy_meter_values(const GetEnergyMeterValues *data, GetEnergyMeterValues_Response *response) {
 	response->header.length = sizeof(GetEnergyMeterValues_Response);
@@ -95,13 +82,24 @@ BootloaderHandleMessageResponse get_input(const GetInput *data, GetInput_Respons
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
-BootloaderHandleMessageResponse set_output(const SetOutput *data) {
+BootloaderHandleMessageResponse set_sg_ready_output(const SetSGReadyOutput *data) {
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
-BootloaderHandleMessageResponse get_output(const GetOutput *data, GetOutput_Response *response) {
-	response->header.length = sizeof(GetOutput_Response);
+BootloaderHandleMessageResponse get_sg_ready_output(const GetSGReadyOutput *data, GetSGReadyOutput_Response *response) {
+	response->header.length = sizeof(GetSGReadyOutput_Response);
+
+	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
+}
+
+BootloaderHandleMessageResponse set_relay_output(const SetRelayOutput *data) {
+
+	return HANDLE_MESSAGE_RESPONSE_EMPTY;
+}
+
+BootloaderHandleMessageResponse get_relay_output(const GetRelayOutput *data, GetRelayOutput_Response *response) {
+	response->header.length = sizeof(GetRelayOutput_Response);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
@@ -190,17 +188,6 @@ BootloaderHandleMessageResponse set_date_time(const SetDateTime *data) {
 
 BootloaderHandleMessageResponse get_date_time(const GetDateTime *data, GetDateTime_Response *response) {
 	response->header.length = sizeof(GetDateTime_Response);
-
-	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
-}
-
-BootloaderHandleMessageResponse set_led_state(const SetLEDState *data) {
-
-	return HANDLE_MESSAGE_RESPONSE_EMPTY;
-}
-
-BootloaderHandleMessageResponse get_led_state(const GetLEDState *data, GetLEDState_Response *response) {
-	response->header.length = sizeof(GetLEDState_Response);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
