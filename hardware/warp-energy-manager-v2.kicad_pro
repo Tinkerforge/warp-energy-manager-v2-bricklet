@@ -926,7 +926,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "warp-energy-manager.net",
-      "plot": "",
+      "plot": "pcb/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
