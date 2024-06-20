@@ -13,194 +13,6 @@
 		(comment 2 "Copyright (©) 2024, B.Nordmeyer <bastian@tinkerforge.com>")
 	)
 	(lib_symbols
-		(symbol "CONN_01X04_1"
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "P"
-				(at 0 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "CONN_01X04"
-				(at 2.54 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Connector 01x04"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Pin_Header_Straight_1X04 Pin_Header_Angled_1X04 Socket_Strip_Straight_1X04 Socket_Strip_Angled_1X04"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "CONN_01X04_1_0_1"
-				(rectangle
-					(start -1.27 -3.683)
-					(end 0.254 -3.937)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -1.143)
-					(end 0.254 -1.397)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 1.397)
-					(end 0.254 1.143)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 3.937)
-					(end 0.254 3.683)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 5.08)
-					(end 1.27 -5.08)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "CONN_01X04_1_1_1"
-				(pin passive line
-					(at -5.08 3.81 0)
-					(length 3.81)
-					(name "P1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 1.27 0)
-					(length 3.81)
-					(name "P2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -1.27 0)
-					(length 3.81)
-					(name "P3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -3.81 0)
-					(length 3.81)
-					(name "P4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "tinkerforge:3V3"
 			(power)
 			(pin_names
@@ -218,7 +30,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "tinkerforge_3V3"
+			(property "Value" "3V3"
 				(at 0 3.556 0)
 				(effects
 					(font
@@ -327,7 +139,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "tinkerforge_5V"
+			(property "Value" "5V"
 				(at 0 3.175 0)
 				(effects
 					(font
@@ -422,7 +234,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_AGQ2X0"
+			(property "Value" "AGQ2X0"
 				(at -2.54 0 90)
 				(effects
 					(font
@@ -849,7 +661,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "tinkerforge_C"
+			(property "Value" "C"
 				(at 1.27 -2.54 0)
 				(effects
 					(font
@@ -883,7 +695,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SM* C? C1-1"
+			(property "ki_fp_filters" "C?"
 				(at 0 0 0)
 				(effects
 					(font
@@ -972,7 +784,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_CON-SENSOR2"
+			(property "Value" "CON-SENSOR2"
 				(at 3.81 0 90)
 				(effects
 					(font
@@ -1188,7 +1000,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_CONN_01X02"
+			(property "Value" "CONN_01X02"
 				(at 2.54 0 90)
 				(effects
 					(font
@@ -1212,7 +1024,7 @@
 					)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Connector 01x02"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1318,7 +1130,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_CONN_01X04"
+			(property "Value" "CONN_01X04"
 				(at 2.54 0 90)
 				(effects
 					(font
@@ -1342,7 +1154,7 @@
 					)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Connector 01x04"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1745,28 +1557,31 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "P"
-				(at -0.381 3.556 0)
+			(property "Reference" "P211"
+				(at -0.3523 1.27 90)
 				(effects
 					(font
 						(size 0.9906 0.9906)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "tinkerforge_CONN_1"
-				(at 0 -2.286 0)
+			(property "Value" "TST_5VP"
+				(at 1.6222 1.27 90)
 				(effects
 					(font
 						(size 0.9906 0.9906)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "kicad-libraries:TSTP_MINI"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.524 1.524)
 					)
+					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
@@ -1834,7 +1649,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_CONN_2"
+			(property "Value" "CONN_2"
 				(at 1.27 0 90)
 				(effects
 					(font
@@ -1935,7 +1750,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "tinkerforge_CP1"
+			(property "Value" "CP1"
 				(at 1.27 -2.54 0)
 				(effects
 					(font
@@ -2080,7 +1895,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_CRYSTAL_3225"
+			(property "Value" "CRYSTAL_3225"
 				(at 6.35 -6.35 0)
 				(effects
 					(font
@@ -2344,7 +2159,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_DMMT5401"
+			(property "Value" "DMMT5401"
 				(at 8.255 -2.54 0)
 				(effects
 					(font
@@ -2687,7 +2502,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "tinkerforge_DRILL"
+			(property "Value" "DRILL"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2749,7 +2564,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_FUSE"
+			(property "Value" "FUSE"
 				(at -2.54 -1.27 0)
 				(effects
 					(font
@@ -3131,7 +2946,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "tinkerforge_GND"
+			(property "Value" "GND"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -3215,7 +3030,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_INDUCTs"
+			(property "Value" "INDUCTs"
 				(at -1.27 0 90)
 				(effects
 					(font
@@ -3323,7 +3138,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_LED"
+			(property "Value" "LED"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -3348,6 +3163,15 @@
 				)
 			)
 			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "LED"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4472,7 +4296,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_MICROSDCARD-CDS"
+			(property "Value" "MICROSDCARD-CDS"
 				(at 3.81 -16.51 0)
 				(effects
 					(font
@@ -4716,7 +4540,7 @@
 					(justify right)
 				)
 			)
-			(property "Value" "tinkerforge_MOSFET_N_CH"
+			(property "Value" "MOSFET_N_CH"
 				(at 17.78 -1.27 0)
 				(effects
 					(font
@@ -4741,7 +4565,16 @@
 					)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Transistor P-MOSFET, collector connected to mounting plane (general)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "pmos p-mos p-mosfet transistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4967,7 +4800,7 @@
 					(justify right)
 				)
 			)
-			(property "Value" "tinkerforge_MOSFET_P_CH"
+			(property "Value" "MOSFET_P_CH"
 				(at 16.51 -1.27 0)
 				(effects
 					(font
@@ -4992,7 +4825,16 @@
 					)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Transistor P-MOSFET (general)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "pmos p-mos p-mosfet transistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5219,7 +5061,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_PTC"
+			(property "Value" "PTC"
 				(at -2.54 0 90)
 				(effects
 					(font
@@ -5389,7 +5231,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_R"
+			(property "Value" "R"
 				(at 0 0 90)
 				(effects
 					(font
@@ -5652,7 +5494,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_R_PACK4"
+			(property "Value" "R_PACK4"
 				(at 0 -1.27 0)
 				(effects
 					(font
@@ -5676,7 +5518,16 @@
 					)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "4 resistors Pack"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R DEV"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5913,7 +5764,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_SP3491"
+			(property "Value" "SP3491"
 				(at 0 -13.97 0)
 				(effects
 					(font
@@ -6382,7 +6233,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_TPS709"
+			(property "Value" "TPS709"
 				(at 3.81 -6.35 0)
 				(effects
 					(font
@@ -6538,7 +6389,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_TVS"
+			(property "Value" "TVS"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -6710,7 +6561,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "tinkerforge_VCCPWR"
+			(property "Value" "VCCPWR"
 				(at 0 3.81 0)
 				(effects
 					(font
@@ -6736,7 +6587,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "power-flag symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Power Flag Symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -6807,7 +6667,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_Varistor"
+			(property "Value" "Varistor"
 				(at -2.54 0 90)
 				(effects
 					(font
@@ -6927,7 +6787,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_WE-SL"
+			(property "Value" "WE-SL"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -7201,7 +7061,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_WPMDL110"
+			(property "Value" "WPMDL110"
 				(at 0 3.81 0)
 				(effects
 					(font
@@ -7321,7 +7181,7 @@
 					)
 				)
 			)
-			(property "Value" "tinkerforge_XMC1XXX48"
+			(property "Value" "XMC1XXX48"
 				(at 0 -25.4 0)
 				(effects
 					(font
@@ -8920,16 +8780,12 @@
 		(uuid "6a59a43c-29c8-4a54-992f-19755c910f46")
 	)
 	(no_connect
-		(at 69.85 267.97)
-		(uuid "745a1643-4233-4136-88dc-50fb5764ee0d")
-	)
-	(no_connect
-		(at 133.35 106.68)
-		(uuid "76866bbf-ac51-495c-ac0c-29a459ce9da0")
-	)
-	(no_connect
 		(at 133.35 121.92)
 		(uuid "7d1aeba2-4823-42bd-8222-3798b8cd0a82")
+	)
+	(no_connect
+		(at 50.8 88.9)
+		(uuid "87dac48e-b6f0-4aac-8c34-0ebef6925c5f")
 	)
 	(no_connect
 		(at 50.8 76.2)
@@ -8940,8 +8796,8 @@
 		(uuid "94255a18-d199-4da8-833d-ac67683e1f22")
 	)
 	(no_connect
-		(at 69.85 265.43)
-		(uuid "a3bf2471-546c-4295-b76d-f003bda77b3a")
+		(at 133.35 88.9)
+		(uuid "a79d6da9-15fb-4ece-bde4-77324a607eb0")
 	)
 	(no_connect
 		(at 196.85 69.85)
@@ -8954,6 +8810,10 @@
 	(no_connect
 		(at 201.93 22.86)
 		(uuid "bc8c235a-db0a-4962-a39a-d07f448001be")
+	)
+	(no_connect
+		(at 133.35 76.2)
+		(uuid "cbb5f3fd-0cbc-457e-a77f-659b099822d5")
 	)
 	(no_connect
 		(at 50.8 83.82)
@@ -8978,10 +8838,6 @@
 	(no_connect
 		(at 133.35 148.59)
 		(uuid "fb26d909-7b75-41e4-833a-5dca4fa7bd9f")
-	)
-	(no_connect
-		(at 69.85 262.89)
-		(uuid "fe46e622-c5af-4d22-a86e-4d927c314eef")
 	)
 	(wire
 		(pts
@@ -9485,7 +9341,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 104.14) (xy 130.81 104.14)
+			(xy 133.35 106.68) (xy 130.81 106.68)
 		)
 		(stroke
 			(width 0)
@@ -12375,7 +12231,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 76.2) (xy 133.35 76.2)
+			(xy 129.54 104.14) (xy 133.35 104.14)
 		)
 		(stroke
 			(width 0)
@@ -13983,7 +13839,7 @@
 	)
 	(global_label "SD-EN"
 		(shape output)
-		(at 129.54 76.2 180)
+		(at 129.54 104.14 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13993,7 +13849,7 @@
 		)
 		(uuid "2c993da7-c885-4f2b-9395-4fc275b57b01")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 122.6274 76.2 0)
+			(at 122.6274 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14203,7 +14059,7 @@
 	)
 	(global_label "SD-CDS"
 		(shape input)
-		(at 130.81 104.14 180)
+		(at 130.81 106.68 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14213,7 +14069,7 @@
 		)
 		(uuid "645204b6-f38f-4673-a1f8-979396c67ea7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 122.9069 104.14 0)
+			(at 122.9069 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15102,7 +14958,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Connector 01x02"
 			(at 19.05 68.58 0)
 			(effects
 				(font
@@ -15450,7 +15306,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "4 resistors Pack"
 			(at 124.46 46.99 0)
 			(effects
 				(font
@@ -16836,7 +16692,7 @@
 				)
 			)
 		)
-		(property "Footprint" "kicad-libraries:DEBUG_PAD"
+		(property "Footprint" "kicad-libraries:TSTP_MINI"
 			(at 43.18 78.74 0)
 			(effects
 				(font
@@ -16980,7 +16836,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Transistor P-MOSFET (general)"
 			(at 99.06 33.02 0)
 			(effects
 				(font
@@ -18050,7 +17906,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Connector 01x04"
 			(at 130.81 251.46 0)
 			(effects
 				(font
@@ -18124,7 +17980,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 224.79 172.72 0)
 			(effects
 				(font
@@ -20997,7 +20853,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "4 resistors Pack"
 			(at 39.37 255.27 0)
 			(effects
 				(font
@@ -21593,7 +21449,6 @@
 		)
 	)
 	(symbol
-		(lib_name "CONN_01X04_1")
 		(lib_id "tinkerforge:CONN_01X04")
 		(at 167.64 114.3 180)
 		(unit 1)
@@ -22904,7 +22759,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 91.44 93.98 0)
 			(effects
 				(font
@@ -23255,7 +23110,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Transistor P-MOSFET, collector connected to mounting plane (general)"
 			(at 232.41 38.1 0)
 			(effects
 				(font
@@ -23390,7 +23245,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 207.01 39.37 0)
 			(effects
 				(font
@@ -24338,7 +24193,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "4 resistors Pack"
 			(at 367.03 219.71 0)
 			(effects
 				(font
@@ -25210,7 +25065,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 119.38 229.87 0)
 			(effects
 				(font
@@ -25599,7 +25454,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Transistor P-MOSFET, collector connected to mounting plane (general)"
 			(at 302.26 45.72 0)
 			(effects
 				(font
@@ -25696,7 +25551,6 @@
 		)
 	)
 	(symbol
-		(lib_name "CONN_01X04_1")
 		(lib_id "tinkerforge:CONN_01X04")
 		(at 167.64 54.61 180)
 		(unit 1)
@@ -26279,7 +26133,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 100.33 207.01 0)
 			(effects
 				(font
@@ -26480,7 +26334,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 207.01 78.74 0)
 			(effects
 				(font
@@ -26725,7 +26579,7 @@
 				)
 			)
 		)
-		(property "Footprint" "kicad-libraries:SOIC16_44"
+		(property "Footprint" "DIP-16"
 			(at 266.7 191.4355 0)
 			(effects
 				(font
@@ -26735,7 +26589,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF"
 			(at 266.7 193.8598 0)
 			(effects
 				(font
@@ -26744,7 +26598,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "DIP-16, Quad DC Optocoupler, Vce 35V, CTR 50%"
 			(at 266.7 212.09 0)
 			(effects
 				(font
@@ -27124,7 +26978,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Transistor P-MOSFET, collector connected to mounting plane (general)"
 			(at 302.26 95.25 0)
 			(effects
 				(font
@@ -27463,7 +27317,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Transistor P-MOSFET, collector connected to mounting plane (general)"
 			(at 232.41 77.47 0)
 			(effects
 				(font
@@ -27674,7 +27528,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 304.8 71.12 0)
 			(effects
 				(font
@@ -27884,7 +27738,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "4 resistors Pack"
 			(at 290.83 189.23 0)
 			(effects
 				(font
@@ -28499,7 +28353,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 304.8 21.59 0)
 			(effects
 				(font
@@ -29031,7 +28885,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "power-flag symbol"
 			(at 224.79 218.44 0)
 			(effects
 				(font
