@@ -8784,7 +8784,7 @@
 		(uuid "7d1aeba2-4823-42bd-8222-3798b8cd0a82")
 	)
 	(no_connect
-		(at 50.8 88.9)
+		(at 50.8 78.74)
 		(uuid "87dac48e-b6f0-4aac-8c34-0ebef6925c5f")
 	)
 	(no_connect
@@ -12541,7 +12541,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 78.74) (xy 45.72 78.74)
+			(xy 50.8 88.9) (xy 45.72 88.9)
 		)
 		(stroke
 			(width 0)
@@ -16668,7 +16668,7 @@
 	)
 	(symbol
 		(lib_id "tinkerforge:CONN_1")
-		(at 43.18 78.74 0)
+		(at 43.18 88.9 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -16677,7 +16677,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-0000608e19b2")
 		(property "Reference" "P111"
-			(at 49.53 77.47 0)
+			(at 40.64 86.36 0)
 			(effects
 				(font
 					(size 0.9906 0.9906)
@@ -16685,7 +16685,7 @@
 			)
 		)
 		(property "Value" "Debug"
-			(at 38.1 78.74 0)
+			(at 38.1 88.9 0)
 			(effects
 				(font
 					(size 0.9906 0.9906)
@@ -16693,7 +16693,7 @@
 			)
 		)
 		(property "Footprint" "kicad-libraries:TSTP_STL"
-			(at 43.18 78.74 0)
+			(at 43.18 88.9 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -16702,7 +16702,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.18 78.74 0)
+			(at 43.18 88.9 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -16710,7 +16710,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 43.18 78.74 0)
+			(at 43.18 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26579,7 +26579,7 @@
 				)
 			)
 		)
-		(property "Footprint" "DIP-16"
+		(property "Footprint" "kicad-libraries:SOIC16_44"
 			(at 266.7 191.4355 0)
 			(effects
 				(font
@@ -26589,7 +26589,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://www.us.liteon.com/downloads/LTV-817-827-847.PDF"
+		(property "Datasheet" ""
 			(at 266.7 193.8598 0)
 			(effects
 				(font
@@ -26598,7 +26598,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "DIP-16, Quad DC Optocoupler, Vce 35V, CTR 50%"
+		(property "Description" ""
 			(at 266.7 212.09 0)
 			(effects
 				(font
