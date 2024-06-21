@@ -132,7 +132,7 @@
 			(psa4output no)
 			(plotreference no)
 			(plotvalue no)
-			(plotfptext yes)
+			(plotfptext no)
 			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(subtractmaskfromsilk yes)
