@@ -13927,7 +13927,7 @@
 	)
 	(global_label "RELAY1"
 		(shape output)
-		(at 129.54 86.36 180)
+		(at 129.54 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13937,7 +13937,7 @@
 		)
 		(uuid "4d5bf537-3760-4c81-b20c-2f1ff1a13a62")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 122.3916 86.36 0)
+			(at 122.3916 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13993,7 +13993,7 @@
 	)
 	(global_label "SG-OUT-0"
 		(shape output)
-		(at 129.54 78.74 180)
+		(at 129.54 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14003,7 +14003,7 @@
 		)
 		(uuid "5d04ee61-1ecc-4cda-8f8d-9e985a4cb21e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.5613 78.74 0)
+			(at 119.5613 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14081,7 +14081,7 @@
 	)
 	(global_label "RELAY0"
 		(shape output)
-		(at 129.54 83.82 180)
+		(at 129.54 78.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14091,7 +14091,7 @@
 		)
 		(uuid "6bcd2eb9-4394-4310-9248-fd4b519c11e4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 122.3916 83.82 0)
+			(at 122.3916 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14235,7 +14235,7 @@
 	)
 	(global_label "SG-OUT-1"
 		(shape output)
-		(at 129.54 81.28 180)
+		(at 129.54 86.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14245,7 +14245,7 @@
 		)
 		(uuid "8a7f65b4-12de-4bcc-aea2-893ee9c28a9c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.5613 81.28 0)
+			(at 119.5613 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16692,7 +16692,7 @@
 				)
 			)
 		)
-		(property "Footprint" "kicad-libraries:TSTP_MINI"
+		(property "Footprint" "kicad-libraries:TSTP_STL"
 			(at 43.18 78.74 0)
 			(effects
 				(font
