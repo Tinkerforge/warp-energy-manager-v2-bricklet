@@ -19143,16 +19143,6 @@
 		(layer "Dwgs.User")
 		(uuid "76bec64f-c1fa-4795-805f-426f307b375d")
 	)
-	(gr_line
-		(start 126.35 45.6)
-		(end 126.35 63.05)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Dwgs.User")
-		(uuid "e3528322-1fe6-4cec-978e-6d131316fbd1")
-	)
 	(gr_arc
 		(start 99.65 126.65)
 		(mid 100.65 125.65)
@@ -19617,6 +19607,66 @@
 			)
 		)
 	)
+	(gr_text "SG-Ready\nCOM1\nNO1\nCOM2\nNO2"
+		(at 131.05 50.15 90)
+		(layer "Dwgs.User")
+		(uuid "16f291f6-2af6-4b28-aeb8-ade6b08ad79e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Relais\nCOMA\nNOA\nCOMB\nNOB"
+		(at 106.95 49.45 90)
+		(layer "Dwgs.User")
+		(uuid "6315fc6c-6556-4762-9e03-07a2f36d6efe")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "RS485\n12V\nA\nB\nGND"
+		(at 146.85 144.45 90)
+		(layer "Dwgs.User")
+		(uuid "73281235-886c-4f9e-b9c5-0fa82ffde16a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "230V\nL\nN"
+		(at 102.85 143.65 90)
+		(layer "Dwgs.User")
+		(uuid "c0a67677-6d8c-4459-90c6-49b8c2741d10")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Input A\nIN1\nIN2\nCOM\n\nInput B\nIN1\nIN2\nCOM"
+		(at 153.65 49.95 90)
+		(layer "Dwgs.User")
+		(uuid "f04af89c-3344-4bcc-870d-928ace9de2b2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "Copyright Tinkerforge GmbH 2024.\nThis documentation describes Open Hardware and is licensed under the\nCERN OHL v. 1.1.\nYou may redistribute and modify this documentation under the terms of the\nCERN OHL v.1.1. (http://ohwr.org/cernohl). This documentation is distributed\nWITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING OF\nMERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A\nPARTICULAR PURPOSE. Please see the CERN OHL v.1.1 for applicable\nconditions"
 		(at 147.85 182.35 0)
 		(layer "Cmts.User")
@@ -19626,6 +19676,18 @@
 				(size 0.8 0.8)
 				(thickness 0.15)
 			)
+		)
+	)
+	(gr_text "Relais"
+		(at 108.15 43.05 180)
+		(layer "F.Fab")
+		(uuid "049e3e79-6fd1-4bbb-811f-03bb6da1f953")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
 		)
 	)
 	(segment
