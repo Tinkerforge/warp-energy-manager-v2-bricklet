@@ -101,7 +101,7 @@ BootloaderHandleMessageResponse get_sg_ready_output(const GetSGReadyOutput *data
 
 BootloaderHandleMessageResponse set_relay_output(const SetRelayOutput *data) {
 	io.relay[0] = data->output[0] & 1;
-	io.relay[1] = data->output[1] & 2;;
+	io.relay[1] = data->output[0] & 2;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
