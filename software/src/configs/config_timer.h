@@ -1,7 +1,7 @@
 /* warp-energy-manager-v2-bricklet
  * Copyright (C) 2024 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: All configurations for WARP Energy Manager Bricklet 2.0
+ * config_timer.h: Config for RS485 timer
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,24 +19,13 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_GENERAL_H
-#define CONFIG_GENERAL_H
+#ifndef CONFIG_TIMER_H
+#define CONFIG_TIMER_H
 
-#include "xmc_device.h"
+#include "xmc_ccu4.h"
 
-
-#define STARTUP_SYSTEM_INIT_ALREADY_DONE
-#define SYSTEM_TIMER_FREQUENCY 1000 // Use 1 kHz system timer
-
-#define UARTBB_TX_PIN P0_6
-
-#define FIRMWARE_VERSION_MAJOR 2
-#define FIRMWARE_VERSION_MINOR 0
-#define FIRMWARE_VERSION_REVISION 0
-
-#define CRC16_USE_MODBUS
-#define COOP_TASK_STACK_SIZE 4096
-
-#include "config_custom_bootloader.h"
+#define TIMER_CCU      CCU40
+#define TIMER_CCU_CC40 CCU40_CC40
+#define TIMER_CCU_CC41 CCU40_CC41
 
 #endif

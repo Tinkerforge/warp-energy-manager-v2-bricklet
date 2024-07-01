@@ -1,7 +1,7 @@
 /* warp-energy-manager-v2-bricklet
  * Copyright (C) 2024 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: All configurations for WARP Energy Manager Bricklet 2.0
+ * sd_new_file_objects.h: New file objects
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,24 +19,13 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_GENERAL_H
-#define CONFIG_GENERAL_H
+#ifndef SD_NEW_FILE_OBJECTS_H
 
-#include "xmc_device.h"
+#include "sd.h"
 
-
-#define STARTUP_SYSTEM_INIT_ALREADY_DONE
-#define SYSTEM_TIMER_FREQUENCY 1000 // Use 1 kHz system timer
-
-#define UARTBB_TX_PIN P0_6
-
-#define FIRMWARE_VERSION_MAJOR 2
-#define FIRMWARE_VERSION_MINOR 0
-#define FIRMWARE_VERSION_REVISION 0
-
-#define CRC16_USE_MODBUS
-#define COOP_TASK_STACK_SIZE 4096
-
-#include "config_custom_bootloader.h"
+extern const Wallbox5MinDataFile sd_new_file_wb_5min;
+extern const Wallbox1DayDataFile sd_new_file_wb_1day;
+extern const EnergyManager5MinDataFile sd_new_file_em_5min;
+extern const EnergyManager1DayDataFile sd_new_file_em_1day;
 
 #endif

@@ -1,7 +1,7 @@
-/* warp-energy-manager-v2-bricklet
+/* hat-warp-energy-manager-v2-brick
  * Copyright (C) 2024 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: All configurations for WARP Energy Manager Bricklet 2.0
+ * eeprom.h: Save and load configuration
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,24 +19,17 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_GENERAL_H
-#define CONFIG_GENERAL_H
+#ifndef EEPROM_H
+#define EEPROM_H
 
-#include "xmc_device.h"
+#define EEPROM_CONFIG_PAGE              1
+#define EEPROM_CONFIG_MAGIC_POS         0
+#define EEPROM_CONFIG_REL_SUM_POS       1
+#define EEPROM_CONFIG_REL_IMPORT_POS    2
+#define EEPROM_CONFIG_REL_EXPORT_POS    3
+#define EEPROM_CONFIG_MAGIC             0x34567891
 
-
-#define STARTUP_SYSTEM_INIT_ALREADY_DONE
-#define SYSTEM_TIMER_FREQUENCY 1000 // Use 1 kHz system timer
-
-#define UARTBB_TX_PIN P0_6
-
-#define FIRMWARE_VERSION_MAJOR 2
-#define FIRMWARE_VERSION_MINOR 0
-#define FIRMWARE_VERSION_REVISION 0
-
-#define CRC16_USE_MODBUS
-#define COOP_TASK_STACK_SIZE 4096
-
-#include "config_custom_bootloader.h"
+void eeprom_save_config(void);
+void eeprom_init(void);
 
 #endif

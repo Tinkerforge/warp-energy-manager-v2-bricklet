@@ -1,7 +1,7 @@
 /* warp-energy-manager-v2-bricklet
  * Copyright (C) 2024 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: All configurations for WARP Energy Manager Bricklet 2.0
+ * voltage.h: Driver input voltage measurement
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,24 +19,23 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_GENERAL_H
-#define CONFIG_GENERAL_H
+#ifndef VOLTAGE_H
+#define VOLTAGE_H
 
-#include "xmc_device.h"
+#include <stdint.h>
 
+typedef struct {
+	uint16_t value;
 
-#define STARTUP_SYSTEM_INIT_ALREADY_DONE
-#define SYSTEM_TIMER_FREQUENCY 1000 // Use 1 kHz system timer
+	uint64_t value_sum;
+	uint32_t value_sum_count;
 
-#define UARTBB_TX_PIN P0_6
+	uint32_t last_time;
+} Voltage;
 
-#define FIRMWARE_VERSION_MAJOR 2
-#define FIRMWARE_VERSION_MINOR 0
-#define FIRMWARE_VERSION_REVISION 0
+extern Voltage voltage;
 
-#define CRC16_USE_MODBUS
-#define COOP_TASK_STACK_SIZE 4096
-
-#include "config_custom_bootloader.h"
+void voltage_init(void);
+void voltage_tick(void);
 
 #endif

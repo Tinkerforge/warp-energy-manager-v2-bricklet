@@ -24,6 +24,8 @@
 #include "bricklib2/utility/communication_callback.h"
 #include "bricklib2/protocols/tfp/tfp.h"
 
+#include "io.h"
+
 BootloaderHandleMessageResponse handle_message(const void *message, void *response) {
 	const uint8_t length = ((TFPMessageHeader*)message)->length;
 	switch(tfp_get_fid_from_message(message)) {
@@ -78,28 +80,35 @@ BootloaderHandleMessageResponse get_energy_meter_state(const GetEnergyMeterState
 
 BootloaderHandleMessageResponse get_input(const GetInput *data, GetInput_Response *response) {
 	response->header.length = sizeof(GetInput_Response);
+	response->input[0]      = io.in[0] | (io.in[1] << 1) | (io.in[2] << 2) | (io.in[3] << 3);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
 BootloaderHandleMessageResponse set_sg_ready_output(const SetSGReadyOutput *data) {
+	io.sg_ready[0] = data->output[0] & 1;
+	io.sg_ready[1] = data->output[0] & 2;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
 BootloaderHandleMessageResponse get_sg_ready_output(const GetSGReadyOutput *data, GetSGReadyOutput_Response *response) {
 	response->header.length = sizeof(GetSGReadyOutput_Response);
+	response->output[0]     = io.sg_ready[0] | (io.sg_ready[1] << 1);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
 BootloaderHandleMessageResponse set_relay_output(const SetRelayOutput *data) {
+	io.relay[0] = data->output[0] & 1;
+	io.relay[1] = data->output[1] & 2;;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
 BootloaderHandleMessageResponse get_relay_output(const GetRelayOutput *data, GetRelayOutput_Response *response) {
 	response->header.length = sizeof(GetRelayOutput_Response);
+	response->output[0]     = io.relay[0] | (io.relay[1] << 1);
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }

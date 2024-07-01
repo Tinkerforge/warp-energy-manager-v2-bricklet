@@ -1,7 +1,7 @@
 /* warp-energy-manager-v2-bricklet
  * Copyright (C) 2024 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: All configurations for WARP Energy Manager Bricklet 2.0
+ * data_storage.h: Generic persistant data storage (RAM+SD)
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,24 +19,26 @@
  * Boston, MA 02111-1307, USA.
  */
 
-#ifndef CONFIG_GENERAL_H
-#define CONFIG_GENERAL_H
+#ifndef DATA_STORAGE_H
+#define DATA_STORAGE_H
 
-#include "xmc_device.h"
+#include <stdint.h>
+#include <stdbool.h>
 
+#define DATA_STORAGE_PAGES 3
+#define DATA_STORAGE_SIZE  64
 
-#define STARTUP_SYSTEM_INIT_ALREADY_DONE
-#define SYSTEM_TIMER_FREQUENCY 1000 // Use 1 kHz system timer
+typedef struct {
+    uint8_t storage[DATA_STORAGE_PAGES][DATA_STORAGE_SIZE];
 
-#define UARTBB_TX_PIN P0_6
+    uint32_t last_change_time[DATA_STORAGE_PAGES];
+    bool write_to_sd[DATA_STORAGE_PAGES];
+    bool read_from_sd[DATA_STORAGE_PAGES];
+} DataStorage;
 
-#define FIRMWARE_VERSION_MAJOR 2
-#define FIRMWARE_VERSION_MINOR 0
-#define FIRMWARE_VERSION_REVISION 0
+extern DataStorage data_storage;
 
-#define CRC16_USE_MODBUS
-#define COOP_TASK_STACK_SIZE 4096
-
-#include "config_custom_bootloader.h"
+void data_storage_tick(void);
+void data_storage_init(void);
 
 #endif

@@ -24,19 +24,43 @@
 
 #include "configs/config.h"
 
+#include "bricklib2/warp/rs485.h"
+#include "bricklib2/warp/meter.h"
 #include "bricklib2/bootloader/bootloader.h"
 #include "bricklib2/hal/system_timer/system_timer.h"
 #include "bricklib2/logging/logging.h"
 #include "communication.h"
+
+#include "io.h"
+#include "voltage.h"
+#include "eeprom.h"
+#include "date_time.h"
+#include "sd.h"
+#include "data_storage.h"
 
 int main(void) {
 	logging_init();
 	logd("Start WARP Energy Manager Bricklet 2.0\n\r");
 
 	communication_init();
+	io_init();
+	rs485_init();
+	meter_init();
+	voltage_init();
+	eeprom_init();
+	date_time_init();
+	sd_init();
+	data_storage_init();
 
 	while(true) {
 		bootloader_tick();
 		communication_tick();
+		io_tick();
+		rs485_tick();
+		meter_tick();
+		voltage_tick();
+		date_time_tick();
+		sd_tick();
+		data_storage_tick();
 	}
 }
