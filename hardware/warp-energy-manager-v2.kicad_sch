@@ -6,8 +6,8 @@
 	(paper "A3")
 	(title_block
 		(title "Energy Manager Bricklet")
-		(date "2024-06-17")
-		(rev "2.0")
+		(date "2024-07-17")
+		(rev "2.1")
 		(company "Tinkerforge GmbH")
 		(comment 1 "Licensed under CERN OHL v.1.1")
 		(comment 2 "Copyright (©) 2024, B.Nordmeyer <bastian@tinkerforge.com>")
@@ -8796,16 +8796,16 @@
 		(uuid "94255a18-d199-4da8-833d-ac67683e1f22")
 	)
 	(no_connect
-		(at 133.35 88.9)
-		(uuid "a79d6da9-15fb-4ece-bde4-77324a607eb0")
-	)
-	(no_connect
 		(at 196.85 69.85)
 		(uuid "aad65d8c-184a-4b85-a3eb-8ab2716ddc40")
 	)
 	(no_connect
 		(at 133.35 73.66)
 		(uuid "acddc1c0-d99c-405a-8fa9-e6286b122049")
+	)
+	(no_connect
+		(at 133.35 124.46)
+		(uuid "bbc6ae32-0587-47fd-ba14-35aeff03a2a2")
 	)
 	(no_connect
 		(at 201.93 22.86)
@@ -9621,7 +9621,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 121.92) (xy 100.33 124.46)
+			(xy 107.315 86.36) (xy 107.315 88.9)
 		)
 		(stroke
 			(width 0)
@@ -10418,6 +10418,16 @@
 			(type default)
 		)
 		(uuid "54fb943c-bf40-4dbc-80dc-3c8e9727e583")
+	)
+	(wire
+		(pts
+			(xy 131.445 88.9) (xy 133.35 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54fe1534-ef72-4ec5-838c-bec8a7f1d7b3")
 	)
 	(wire
 		(pts
@@ -12461,16 +12471,6 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 124.46) (xy 133.35 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c75995d4-8cf4-447b-b0e5-11284e564df7")
-	)
-	(wire
-		(pts
 			(xy 219.71 21.59) (xy 219.71 20.32)
 		)
 		(stroke
@@ -12631,7 +12631,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 124.46) (xy 111.76 124.46)
+			(xy 117.475 88.9) (xy 118.745 88.9)
 		)
 		(stroke
 			(width 0)
@@ -13564,7 +13564,7 @@
 	)
 	(text "\"status led\""
 		(exclude_from_sim no)
-		(at 109.22 129.54 0)
+		(at 116.205 93.98 0)
 		(effects
 			(font
 				(size 0.9906 0.9906)
@@ -15049,7 +15049,7 @@
 	)
 	(symbol
 		(lib_id "tinkerforge:LED")
-		(at 105.41 124.46 0)
+		(at 112.395 88.9 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15058,7 +15058,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e865ab8")
 		(property "Reference" "D103"
-			(at 105.41 127 0)
+			(at 112.395 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15066,7 +15066,7 @@
 			)
 		)
 		(property "Value" "blue"
-			(at 105.41 121.92 0)
+			(at 112.395 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15074,7 +15074,7 @@
 			)
 		)
 		(property "Footprint" "kicad-libraries:D0603F"
-			(at 105.41 124.46 0)
+			(at 112.395 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15083,7 +15083,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 105.41 124.46 0)
+			(at 112.395 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15091,7 +15091,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 105.41 124.46 0)
+			(at 112.395 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15612,7 +15612,7 @@
 	)
 	(symbol
 		(lib_id "tinkerforge:3V3")
-		(at 100.33 121.92 0)
+		(at 107.315 86.36 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15621,7 +15621,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ec1a022")
 		(property "Reference" "#PWR0106"
-			(at 100.33 119.38 0)
+			(at 107.315 83.82 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -15630,7 +15630,7 @@
 			)
 		)
 		(property "Value" "3V3"
-			(at 100.33 118.745 0)
+			(at 107.315 83.185 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -15638,7 +15638,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 121.92 0)
+			(at 107.315 86.36 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -15646,7 +15646,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 121.92 0)
+			(at 107.315 86.36 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -15654,7 +15654,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 100.33 121.92 0)
+			(at 107.315 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15676,7 +15676,7 @@
 	)
 	(symbol
 		(lib_id "tinkerforge:R")
-		(at 118.11 124.46 270)
+		(at 125.095 88.9 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15685,7 +15685,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005ec3ae74")
 		(property "Reference" "R124"
-			(at 118.11 127 90)
+			(at 125.095 91.44 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15693,7 +15693,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 118.11 124.46 90)
+			(at 125.095 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15701,7 +15701,7 @@
 			)
 		)
 		(property "Footprint" "kicad-libraries:R0603F"
-			(at 118.11 124.46 0)
+			(at 125.095 88.9 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -15710,7 +15710,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 118.11 124.46 0)
+			(at 125.095 88.9 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -15718,7 +15718,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 118.11 124.46 0)
+			(at 125.095 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
