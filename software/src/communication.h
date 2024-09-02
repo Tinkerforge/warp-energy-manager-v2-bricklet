@@ -201,6 +201,19 @@ typedef struct {
 
 typedef struct {
 	TFPMessageHeader header;
+	float power;
+	float current[3];
+	uint8_t energy_meter_type;
+	uint32_t error_count[6];
+	uint8_t input[1];
+	uint8_t output_sg_ready[1];
+	uint8_t output_relay[1];
+	uint16_t voltage;
+	uint32_t uptime;
+} __attribute__((__packed__)) GetAllData1_Response;
+
+typedef struct {
+	TFPMessageHeader header;
 } __attribute__((__packed__)) GetSDInformation;
 
 typedef struct {
@@ -357,14 +370,14 @@ typedef struct {
 	TFPMessageHeader header;
 	uint16_t data_length;
 	uint16_t data_chunk_offset;
-	uint8_t data_chunk_data[58];
+	uint8_t data_chunk_data[33];
 } __attribute__((__packed__)) SDEnergyManagerDataPointsLowLevel_Callback;
 
 typedef struct {
 	TFPMessageHeader header;
 	uint16_t data_length;
 	uint16_t data_chunk_offset;
-	uint32_t data_chunk_data[14];
+	uint32_t data_chunk_data[15];
 } __attribute__((__packed__)) SDEnergyManagerDailyDataPointsLowLevel_Callback;
 
 typedef struct {
@@ -435,7 +448,7 @@ BootloaderHandleMessageResponse set_relay_output(const SetRelayOutput *data);
 BootloaderHandleMessageResponse get_relay_output(const GetRelayOutput *data, GetRelayOutput_Response *response);
 BootloaderHandleMessageResponse get_input_voltage(const GetInputVoltage *data, GetInputVoltage_Response *response);
 BootloaderHandleMessageResponse get_uptime(const GetUptime *data, GetUptime_Response *response);
-BootloaderHandleMessageResponse get_all_data_1(const GetAllData1 *data);
+BootloaderHandleMessageResponse get_all_data_1(const GetAllData1 *data, GetAllData1_Response *response);
 BootloaderHandleMessageResponse get_sd_information(const GetSDInformation *data, GetSDInformation_Response *response);
 BootloaderHandleMessageResponse set_sd_wallbox_data_point(const SetSDWallboxDataPoint *data, SetSDWallboxDataPoint_Response *response);
 BootloaderHandleMessageResponse get_sd_wallbox_data_points(const GetSDWallboxDataPoints *data, GetSDWallboxDataPoints_Response *response);

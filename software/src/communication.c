@@ -113,7 +113,7 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_GET_RELAY_OUTPUT:                           return length != sizeof(GetRelayOutput)                       ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_relay_output(message, response);
 		case FID_GET_INPUT_VOLTAGE:                          return length != sizeof(GetInputVoltage)                      ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_input_voltage(message, response);
 		case FID_GET_UPTIME:                                 return length != sizeof(GetUptime)                            ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_uptime(message, response);
-		case FID_GET_ALL_DATA_1:                             return length != sizeof(GetAllData1)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_all_data_1(message);
+		case FID_GET_ALL_DATA_1:                             return length != sizeof(GetAllData1)                          ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_all_data_1(message, response);
 		case FID_GET_SD_INFORMATION:                         return length != sizeof(GetSDInformation)                     ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_sd_information(message, response);
 		case FID_SET_SD_WALLBOX_DATA_POINT:                  return length != sizeof(SetSDWallboxDataPoint)                ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : set_sd_wallbox_data_point(message, response);
 		case FID_GET_SD_WALLBOX_DATA_POINTS:                 return length != sizeof(GetSDWallboxDataPoints)               ? HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER : get_sd_wallbox_data_points(message, response);
@@ -246,7 +246,30 @@ BootloaderHandleMessageResponse get_uptime(const GetUptime *data, GetUptime_Resp
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
-BootloaderHandleMessageResponse get_all_data_1(const GetAllData1 *data) {
+BootloaderHandleMessageResponse get_all_data_1(const GetAllData1 *data, GetAllData1_Response *response) {
+	response->header.length = sizeof(GetAllData1_Response);
+	TFPMessageFull parts;
+
+	get_energy_meter_values(NULL, (GetEnergyMeterValues_Response*)&parts);
+	memcpy(&response->power, parts.data, sizeof(GetEnergyMeterValues_Response) - sizeof(TFPMessageHeader));
+
+	get_energy_meter_state(NULL, (GetEnergyMeterState_Response*)&parts);
+	memcpy(&response->energy_meter_type, parts.data, sizeof(GetEnergyMeterState_Response) - sizeof(TFPMessageHeader));
+
+	get_input(NULL, (GetInput_Response*)&parts);
+	memcpy(&response->input, parts.data, sizeof(GetInput_Response) - sizeof(TFPMessageHeader));
+
+	get_sg_ready_output(NULL, (GetSGReadyOutput_Response*)&parts);
+	memcpy(&response->output_sg_ready, parts.data, sizeof(GetSGReadyOutput_Response) - sizeof(TFPMessageHeader));
+
+	get_relay_output(NULL, (GetRelayOutput_Response*)&parts);
+	memcpy(&response->output_relay, parts.data, sizeof(GetRelayOutput_Response) - sizeof(TFPMessageHeader));
+
+	get_input_voltage(NULL, (GetInputVoltage_Response*)&parts);
+	memcpy(&response->voltage, parts.data, sizeof(GetInputVoltage_Response) - sizeof(TFPMessageHeader));
+
+	get_uptime(NULL, (GetUptime_Response*)&parts);
+	memcpy(&response->uptime, parts.data, sizeof(GetUptime_Response) - sizeof(TFPMessageHeader));
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
