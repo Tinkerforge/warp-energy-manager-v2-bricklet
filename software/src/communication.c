@@ -501,10 +501,16 @@ bool handle_sd_wallbox_data_points_low_level_callback(void) {
 	static SDWallboxDataPointsLowLevel_Callback cb;
 
 	if(!is_buffered) {
-		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDWallboxDataPointsLowLevel_Callback), FID_CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL);
-		// TODO: Implement SDWallboxDataPointsLowLevel callback handling
+		if(!sd.new_sd_wallbox_data_points_cb) {
+			return false;
+		}
 
-		return false;
+		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDWallboxDataPointsLowLevel_Callback), FID_CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL);
+		cb.data_length = sd.sd_wallbox_data_points_cb_data_length;
+		cb.data_chunk_offset = sd.sd_wallbox_data_points_cb_offset;
+		memcpy(cb.data_chunk_data, sd.sd_wallbox_data_points_cb_data, 60);
+
+		sd.new_sd_wallbox_data_points_cb = false;
 	}
 
 	if(bootloader_spitfp_is_send_possible(&bootloader_status.st)) {
@@ -523,10 +529,16 @@ bool handle_sd_wallbox_daily_data_points_low_level_callback(void) {
 	static SDWallboxDailyDataPointsLowLevel_Callback cb;
 
 	if(!is_buffered) {
-		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDWallboxDailyDataPointsLowLevel_Callback), FID_CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL);
-		// TODO: Implement SDWallboxDailyDataPointsLowLevel callback handling
+		if(!sd.new_sd_wallbox_daily_data_points_cb) {
+			return false;
+		}
 
-		return false;
+		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDWallboxDailyDataPointsLowLevel_Callback), FID_CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL);
+		cb.data_length = sd.sd_wallbox_daily_data_points_cb_data_length;
+		cb.data_chunk_offset = sd.sd_wallbox_daily_data_points_cb_offset;
+		memcpy(cb.data_chunk_data, sd.sd_wallbox_daily_data_points_cb_data, 60);
+
+		sd.new_sd_wallbox_daily_data_points_cb = false;
 	}
 
 	if(bootloader_spitfp_is_send_possible(&bootloader_status.st)) {
@@ -545,10 +557,16 @@ bool handle_sd_energy_manager_data_points_low_level_callback(void) {
 	static SDEnergyManagerDataPointsLowLevel_Callback cb;
 
 	if(!is_buffered) {
-		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDEnergyManagerDataPointsLowLevel_Callback), FID_CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL);
-		// TODO: Implement SDEnergyManagerDataPointsLowLevel callback handling
+		if(!sd.new_sd_energy_manager_data_points_cb) {
+			return false;
+		}
 
-		return false;
+		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDEnergyManagerDataPointsLowLevel_Callback), FID_CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL);
+		cb.data_length = sd.sd_energy_manager_data_points_cb_data_length;
+		cb.data_chunk_offset = sd.sd_energy_manager_data_points_cb_offset;
+		memcpy(cb.data_chunk_data, sd.sd_energy_manager_data_points_cb_data, 33);
+
+		sd.new_sd_energy_manager_data_points_cb = false;
 	}
 
 	if(bootloader_spitfp_is_send_possible(&bootloader_status.st)) {
@@ -567,10 +585,16 @@ bool handle_sd_energy_manager_daily_data_points_low_level_callback(void) {
 	static SDEnergyManagerDailyDataPointsLowLevel_Callback cb;
 
 	if(!is_buffered) {
-		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDEnergyManagerDailyDataPointsLowLevel_Callback), FID_CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL);
-		// TODO: Implement SDEnergyManagerDailyDataPointsLowLevel callback handling
+		if(!sd.new_sd_energy_manager_daily_data_points_cb) {
+			return false;
+		}
 
-		return false;
+		tfp_make_default_header(&cb.header, bootloader_get_uid(), sizeof(SDEnergyManagerDailyDataPointsLowLevel_Callback), FID_CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL);
+		cb.data_length = sd.sd_energy_manager_daily_data_points_cb_data_length;
+		cb.data_chunk_offset = sd.sd_energy_manager_daily_data_points_cb_offset;
+		memcpy(cb.data_chunk_data, sd.sd_energy_manager_daily_data_points_cb_data, 60);
+
+		sd.new_sd_energy_manager_daily_data_points_cb = false;
 	}
 
 	if(bootloader_spitfp_is_send_possible(&bootloader_status.st)) {
