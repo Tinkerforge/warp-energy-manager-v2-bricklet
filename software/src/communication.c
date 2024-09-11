@@ -271,7 +271,7 @@ BootloaderHandleMessageResponse get_all_data_1(const GetAllData1 *data, GetAllDa
 	get_uptime(NULL, (GetUptime_Response*)&parts);
 	memcpy(&response->uptime, parts.data, sizeof(GetUptime_Response) - sizeof(TFPMessageHeader));
 
-	return HANDLE_MESSAGE_RESPONSE_EMPTY;
+	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;
 }
 
 BootloaderHandleMessageResponse get_sd_information(const GetSDInformation *data, GetSDInformation_Response *response) {
