@@ -46,10 +46,10 @@ void io_init(void) {
 		.mode             = XMC_GPIO_MODE_INPUT_TRISTATE,
 		.input_hysteresis = XMC_GPIO_INPUT_HYSTERESIS_LARGE,
 	};
-	XMC_GPIO_Init(IO_RELAY0_PIN,  &io_config_high);
-	XMC_GPIO_Init(IO_RELAY1_PIN,  &io_config_high);
-	XMC_GPIO_Init(IO_SG_OUT0_PIN, &io_config_high);
-	XMC_GPIO_Init(IO_SG_OUT1_PIN, &io_config_high);
+	XMC_GPIO_Init(IO_RELAY0_PIN,  &io_config_low);
+	XMC_GPIO_Init(IO_RELAY1_PIN,  &io_config_low);
+	XMC_GPIO_Init(IO_SG_OUT0_PIN, &io_config_low);
+	XMC_GPIO_Init(IO_SG_OUT1_PIN, &io_config_low);
 
 	XMC_GPIO_Init(IO_IN0_PIN, &io_config_input);
 	XMC_GPIO_Init(IO_IN1_PIN, &io_config_input);
