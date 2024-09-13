@@ -277,7 +277,7 @@
 				)
 			)
 		)
-		(property "Value" "MOV-10D391KTR"
+		(property "Value" "MOV-10D431KTR"
 			(at 0.05 0.2 90)
 			(layer "F.Fab")
 			(uuid "d486fbc1-7ff4-454f-8fff-a109c81b64a4")
