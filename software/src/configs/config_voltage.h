@@ -26,10 +26,10 @@
 #include "xmc_vadc.h"
 
 #define VOLTAGE_PIN                P2_3
-#define VOLTAGE_RESULT_REG         10 // TODO
-#define VOLTAGE_CHANNEL_NUM        6  // TODO
-#define VOLTAGE_CHANNEL_ALIAS      -1  // TODO
-#define VOLTAGE_GROUP_INDEX        1  // TODO
-#define VOLTAGE_GROUP              VADC_G1  // TODO
+#define VOLTAGE_RESULT_REG         4
+#define VOLTAGE_CHANNEL_NUM        0
+#define VOLTAGE_CHANNEL_ALIAS      5
+#define VOLTAGE_GROUP_INDEX        1
+#define VOLTAGE_GROUP              VADC_G1
 
 #endif
