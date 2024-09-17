@@ -32,11 +32,6 @@ IO io;
 
 void io_init(void) {
 	memset(&io, 0, sizeof(IO));
-	const XMC_GPIO_CONFIG_t io_config_high = {
-		.mode             = XMC_GPIO_MODE_OUTPUT_PUSH_PULL,
-		.output_level     = XMC_GPIO_OUTPUT_LEVEL_HIGH,
-	};
-
 	const XMC_GPIO_CONFIG_t io_config_low = {
 		.mode             = XMC_GPIO_MODE_OUTPUT_PUSH_PULL,
 		.output_level     = XMC_GPIO_OUTPUT_LEVEL_LOW,
