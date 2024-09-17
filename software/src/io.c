@@ -63,8 +63,9 @@ void io_tick(void) {
 	XMC_GPIO_SetOutputLevel(IO_SG_OUT0_PIN, io.sg_ready[0] ? XMC_GPIO_OUTPUT_LEVEL_HIGH : XMC_GPIO_OUTPUT_LEVEL_LOW);
 	XMC_GPIO_SetOutputLevel(IO_SG_OUT1_PIN, io.sg_ready[1] ? XMC_GPIO_OUTPUT_LEVEL_HIGH : XMC_GPIO_OUTPUT_LEVEL_LOW);
 
-	io.in[0] = XMC_GPIO_GetInput(IO_IN0_PIN);
-	io.in[1] = XMC_GPIO_GetInput(IO_IN1_PIN);
-	io.in[2] = XMC_GPIO_GetInput(IO_IN2_PIN);
-	io.in[3] = XMC_GPIO_GetInput(IO_IN3_PIN);
+	// TODO: Add debounce
+	io.in[0] = !XMC_GPIO_GetInput(IO_IN0_PIN);
+	io.in[1] = !XMC_GPIO_GetInput(IO_IN1_PIN);
+	io.in[2] = !XMC_GPIO_GetInput(IO_IN2_PIN);
+	io.in[3] = !XMC_GPIO_GetInput(IO_IN3_PIN);
 }
