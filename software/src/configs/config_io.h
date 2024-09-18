@@ -29,9 +29,9 @@
 #define IO_IN2_PIN     P2_6
 #define IO_IN3_PIN     P2_7
 
-#define IO_RELAY0_PIN  P1_2
-#define IO_RELAY1_PIN  P1_3
-#define IO_SG_OUT0_PIN P1_4
-#define IO_SG_OUT1_PIN P1_5
+#define IO_RELAY0_PIN  P1_3
+#define IO_RELAY1_PIN  P1_2
+#define IO_SG_OUT0_PIN P1_5
+#define IO_SG_OUT1_PIN P1_4
 
 #endif
