@@ -151,7 +151,8 @@ typedef struct {
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t output[1];
+	uint8_t index;
+	bool output;
 } __attribute__((__packed__)) SetSGReadyOutput;
 
 typedef struct {
@@ -165,7 +166,8 @@ typedef struct {
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t output[1];
+	uint8_t index;
+	bool output;
 } __attribute__((__packed__)) SetRelayOutput;
 
 typedef struct {

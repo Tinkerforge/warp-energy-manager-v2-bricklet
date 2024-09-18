@@ -205,8 +205,11 @@ BootloaderHandleMessageResponse get_input(const GetInput *data, GetInput_Respons
 }
 
 BootloaderHandleMessageResponse set_sg_ready_output(const SetSGReadyOutput *data) {
-	io.sg_ready[0] = data->output[0] & 1;
-	io.sg_ready[1] = data->output[0] & 2;
+	if(data->index > 1) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
+	io.sg_ready[data->index] = data->output;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
@@ -219,8 +222,11 @@ BootloaderHandleMessageResponse get_sg_ready_output(const GetSGReadyOutput *data
 }
 
 BootloaderHandleMessageResponse set_relay_output(const SetRelayOutput *data) {
-	io.relay[0] = data->output[0] & 1;
-	io.relay[1] = data->output[0] & 2;
+	if(data->index > 1) {
+		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
+	}
+
+	io.relay[data->index] = data->output;
 
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
