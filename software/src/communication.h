@@ -238,7 +238,7 @@ typedef struct {
 	uint8_t day;
 	uint8_t hour;
 	uint8_t minute;
-	uint8_t flags;
+	uint16_t flags;
 	uint16_t power;
 } __attribute__((__packed__)) SetSDWallboxDataPoint;
 
@@ -298,7 +298,7 @@ typedef struct {
 	uint8_t day;
 	uint8_t hour;
 	uint8_t minute;
-	uint8_t flags;
+	uint16_t flags;
 	int32_t power_grid;
 	int32_t power_general[6];
 	uint32_t price;
@@ -372,7 +372,7 @@ typedef struct {
 	TFPMessageHeader header;
 	uint16_t data_length;
 	uint16_t data_chunk_offset;
-	uint8_t data_chunk_data[33];
+	uint8_t data_chunk_data[34];
 } __attribute__((__packed__)) SDEnergyManagerDataPointsLowLevel_Callback;
 
 typedef struct {
