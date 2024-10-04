@@ -13529,6 +13529,17 @@
 		)
 		(uuid "fd66ffd6-a5d0-4c9b-91a1-5adfdc067d61")
 	)
+	(text "ca 70mW per input"
+		(exclude_from_sim no)
+		(at 194.31 263.525 0)
+		(effects
+			(font
+				(size 0.9906 0.9906)
+			)
+			(justify right bottom)
+		)
+		(uuid "1f27d703-5f58-4bc0-8269-7413bf83b322")
+	)
 	(text "SPI Slave/CH0\nP0.13 : USIC0_CH0-DX2F : SEL\nP0.14 : USIC0_CH0-DX1A : CLK\nP0.15 : USIC0_CH0-DX0B : MOSI\nP2.0 : USIC0_CH0-DOUT0 : MISO"
 		(exclude_from_sim no)
 		(at 36.83 127 0)
@@ -13683,7 +13694,7 @@
 			)
 		)
 	)
-	(global_label "SG-OUT-1"
+	(global_label "SG-OUT-0"
 		(shape input)
 		(at 250.19 77.47 0)
 		(fields_autoplaced yes)
@@ -13925,7 +13936,7 @@
 			)
 		)
 	)
-	(global_label "RELAY1"
+	(global_label "RELAY0"
 		(shape output)
 		(at 129.54 81.28 180)
 		(fields_autoplaced yes)
@@ -13991,7 +14002,7 @@
 			)
 		)
 	)
-	(global_label "SG-OUT-0"
+	(global_label "SG-OUT-1"
 		(shape output)
 		(at 129.54 83.82 180)
 		(fields_autoplaced yes)
@@ -14079,7 +14090,7 @@
 			)
 		)
 	)
-	(global_label "RELAY0"
+	(global_label "RELAY1"
 		(shape output)
 		(at 129.54 78.74 180)
 		(fields_autoplaced yes)
@@ -14233,7 +14244,7 @@
 			)
 		)
 	)
-	(global_label "SG-OUT-1"
+	(global_label "SG-OUT-0"
 		(shape output)
 		(at 129.54 86.36 180)
 		(fields_autoplaced yes)
@@ -14299,7 +14310,7 @@
 			)
 		)
 	)
-	(global_label "SG-OUT-0"
+	(global_label "SG-OUT-1"
 		(shape input)
 		(at 250.19 38.1 0)
 		(fields_autoplaced yes)
@@ -14321,7 +14332,7 @@
 			)
 		)
 	)
-	(global_label "RELAY0"
+	(global_label "RELAY1"
 		(shape input)
 		(at 313.69 45.72 0)
 		(fields_autoplaced yes)
@@ -14497,7 +14508,7 @@
 			)
 		)
 	)
-	(global_label "RELAY1"
+	(global_label "RELAY0"
 		(shape input)
 		(at 313.69 95.25 0)
 		(fields_autoplaced yes)
@@ -21807,7 +21818,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "2k2"
 			(at 214.63 179.07 90)
 			(effects
 				(font
@@ -21874,7 +21885,7 @@
 				)
 			)
 		)
-		(property "Value" "680"
+		(property "Value" "1k"
 			(at 214.63 184.15 90)
 			(effects
 				(font
@@ -21941,7 +21952,7 @@
 				)
 			)
 		)
-		(property "Value" "680"
+		(property "Value" "1k"
 			(at 214.63 191.77 90)
 			(effects
 				(font
@@ -22008,7 +22019,7 @@
 				)
 			)
 		)
-		(property "Value" "2k2"
+		(property "Value" "4k7"
 			(at 185.42 199.39 90)
 			(effects
 				(font
@@ -22075,7 +22086,7 @@
 				)
 			)
 		)
-		(property "Value" "2k2"
+		(property "Value" "4k7"
 			(at 180.34 199.39 90)
 			(effects
 				(font
@@ -26241,7 +26252,7 @@
 				)
 			)
 		)
-		(property "Value" "2k2"
+		(property "Value" "4k7"
 			(at 180.34 245.11 90)
 			(effects
 				(font
@@ -27091,7 +27102,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "2k2"
 			(at 214.63 224.79 90)
 			(effects
 				(font
@@ -28060,7 +28071,7 @@
 				)
 			)
 		)
-		(property "Value" "2k2"
+		(property "Value" "4k7"
 			(at 185.42 245.11 90)
 			(effects
 				(font
@@ -28260,7 +28271,7 @@
 				)
 			)
 		)
-		(property "Value" "680"
+		(property "Value" "1k"
 			(at 214.63 229.87 90)
 			(effects
 				(font
@@ -28664,7 +28675,7 @@
 				)
 			)
 		)
-		(property "Value" "680"
+		(property "Value" "1k"
 			(at 214.63 237.49 90)
 			(effects
 				(font
