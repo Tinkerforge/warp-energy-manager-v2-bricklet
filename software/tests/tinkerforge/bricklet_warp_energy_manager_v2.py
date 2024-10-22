@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #############################################################
-# This file was automatically generated on 2024-07-01.      #
+# This file was automatically generated on 2024-10-08.      #
 #                                                           #
 # Python Bindings Version 2.1.31                            #
 #                                                           #
@@ -24,6 +24,7 @@ except (ValueError, ImportError):
 GetEnergyMeterValues = namedtuple('EnergyMeterValues', ['power', 'current'])
 GetEnergyMeterDetailedValuesLowLevel = namedtuple('EnergyMeterDetailedValuesLowLevel', ['values_chunk_offset', 'values_chunk_data'])
 GetEnergyMeterState = namedtuple('EnergyMeterState', ['energy_meter_type', 'error_count'])
+GetAllData1 = namedtuple('AllData1', ['power', 'current', 'energy_meter_type', 'error_count', 'input', 'output_sg_ready', 'output_relay', 'voltage', 'uptime'])
 GetSDInformation = namedtuple('SDInformation', ['sd_status', 'lfs_status', 'sector_size', 'sector_count', 'card_type', 'product_rev', 'product_name', 'manufacturer_id'])
 GetDateTime = namedtuple('DateTime', ['seconds', 'minutes', 'hours', 'days', 'days_of_week', 'month', 'year'])
 GetSPITFPErrorCount = namedtuple('SPITFPErrorCount', ['error_count_ack_checksum', 'error_count_message_checksum', 'error_count_frame', 'error_count_overflow'])
@@ -142,7 +143,7 @@ class BrickletWARPEnergyManagerV2(Device):
         self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_RELAY_OUTPUT] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
         self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_INPUT_VOLTAGE] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
         self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_UPTIME] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
-        self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_ALL_DATA_1] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_FALSE
+        self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_ALL_DATA_1] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
         self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_SD_INFORMATION] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
         self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_SET_SD_WALLBOX_DATA_POINT] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
         self.response_expected[BrickletWARPEnergyManagerV2.FUNCTION_GET_SD_WALLBOX_DATA_POINTS] = BrickletWARPEnergyManagerV2.RESPONSE_EXPECTED_ALWAYS_TRUE
@@ -173,8 +174,8 @@ class BrickletWARPEnergyManagerV2(Device):
 
         self.callback_formats[BrickletWARPEnergyManagerV2.CALLBACK_SD_WALLBOX_DATA_POINTS_LOW_LEVEL] = (72, 'H H 60B')
         self.callback_formats[BrickletWARPEnergyManagerV2.CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS_LOW_LEVEL] = (72, 'H H 15I')
-        self.callback_formats[BrickletWARPEnergyManagerV2.CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL] = (70, 'H H 58B')
-        self.callback_formats[BrickletWARPEnergyManagerV2.CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL] = (68, 'H H 14I')
+        self.callback_formats[BrickletWARPEnergyManagerV2.CALLBACK_SD_ENERGY_MANAGER_DATA_POINTS_LOW_LEVEL] = (46, 'H H 34B')
+        self.callback_formats[BrickletWARPEnergyManagerV2.CALLBACK_SD_ENERGY_MANAGER_DAILY_DATA_POINTS_LOW_LEVEL] = (72, 'H H 15I')
 
         self.high_level_callbacks[BrickletWARPEnergyManagerV2.CALLBACK_SD_WALLBOX_DATA_POINTS] = [('stream_length', 'stream_chunk_offset', 'stream_chunk_data'), {'fixed_length': None, 'single_chunk': False}, None]
         self.high_level_callbacks[BrickletWARPEnergyManagerV2.CALLBACK_SD_WALLBOX_DAILY_DATA_POINTS] = [('stream_length', 'stream_chunk_offset', 'stream_chunk_data'), {'fixed_length': None, 'single_chunk': False}, None]
@@ -214,15 +215,16 @@ class BrickletWARPEnergyManagerV2(Device):
 
         return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_GET_INPUT, (), '', 9, '4!')
 
-    def set_sg_ready_output(self, output):
+    def set_sg_ready_output(self, index, output):
         r"""
         TODO
         """
         self.check_validity()
 
-        output = list(map(bool, output))
+        index = int(index)
+        output = bool(output)
 
-        self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_SG_READY_OUTPUT, (output,), '2!', 0, '')
+        self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_SG_READY_OUTPUT, (index, output), 'B !', 0, '')
 
     def get_sg_ready_output(self):
         r"""
@@ -232,15 +234,16 @@ class BrickletWARPEnergyManagerV2(Device):
 
         return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_GET_SG_READY_OUTPUT, (), '', 9, '2!')
 
-    def set_relay_output(self, output):
+    def set_relay_output(self, index, output):
         r"""
         TODO
         """
         self.check_validity()
 
-        output = list(map(bool, output))
+        index = int(index)
+        output = bool(output)
 
-        self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_RELAY_OUTPUT, (output,), '2!', 0, '')
+        self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_RELAY_OUTPUT, (index, output), 'B !', 0, '')
 
     def get_relay_output(self):
         r"""
@@ -272,7 +275,7 @@ class BrickletWARPEnergyManagerV2(Device):
         """
         self.check_validity()
 
-        self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_GET_ALL_DATA_1, (), '', 0, '')
+        return GetAllData1(*self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_GET_ALL_DATA_1, (), '', 58, 'f 3f B 6I 4! 2! 2! H I'))
 
     def get_sd_information(self):
         r"""
@@ -297,7 +300,7 @@ class BrickletWARPEnergyManagerV2(Device):
         flags = int(flags)
         power = int(power)
 
-        return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_SD_WALLBOX_DATA_POINT, (wallbox_id, year, month, day, hour, minute, flags, power), 'I B B B B B B H', 9, 'B')
+        return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_SD_WALLBOX_DATA_POINT, (wallbox_id, year, month, day, hour, minute, flags, power), 'I B B B B B H H', 9, 'B')
 
     def get_sd_wallbox_data_points(self, wallbox_id, year, month, day, hour, minute, amount):
         r"""
@@ -359,7 +362,7 @@ class BrickletWARPEnergyManagerV2(Device):
         power_general = list(map(int, power_general))
         price = int(price)
 
-        return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_SD_ENERGY_MANAGER_DATA_POINT, (year, month, day, hour, minute, flags, power_grid, power_general, price), 'B B B B B B i 6i I', 9, 'B')
+        return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_SET_SD_ENERGY_MANAGER_DATA_POINT, (year, month, day, hour, minute, flags, power_grid, power_general, price), 'B B B B B H i 6i I', 9, 'B')
 
     def get_sd_energy_manager_data_points(self, year, month, day, hour, minute, amount):
         r"""
