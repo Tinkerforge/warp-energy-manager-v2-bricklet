@@ -1,31 +1,72 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-HOST = "localhost"
-PORT = 4223
-UID = "YsA8F" 
-
-from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_warp_energy_manager_v2 import BrickletWARPEnergyManagerV2
+from common import get_first_wem2_bricklet
 import time
 
 if __name__ == "__main__":
-    ipcon = IPConnection() # Create IP connection
-    wem = BrickletWARPEnergyManagerV2(UID, ipcon) # Create device object
+    wem = get_first_wem2_bricklet()
 
-    ipcon.connect(HOST, PORT) # Connect to brickd
-    # Don't use device before ipcon is connected
+    wem.set_sg_ready_output(0, 0)
+    wem.set_sg_ready_output(1, 0)
+    wem.set_relay_output(0, 0)
+    wem.set_relay_output(1, 0)
+    time.sleep(0.1)
+    inp = wem.get_input()
+    if inp == (False, False, False, False):
+        print("Check 0000 OK")
+    else:
+        print("Check 0000 Failed", inp)
 
-    while True:
-        print('Input: ', wem.get_input())
-        wem.set_relay_output((0, 1))
-        print(wem.get_relay_output())
-        wem.set_sg_ready_output((1, 0))
-        print(wem.get_sg_ready_output())
-        time.sleep(1)
-        print('Input: ', wem.get_input())
-        wem.set_relay_output((1, 0))
-        print(wem.get_relay_output())
-        wem.set_sg_ready_output((0, 1))
-        print(wem.get_sg_ready_output())
-        time.sleep(1)
+    wem.set_sg_ready_output(0, 1)
+    wem.set_sg_ready_output(1, 0)
+    wem.set_relay_output(0, 0)
+    wem.set_relay_output(1, 0)
+    time.sleep(0.1)
+    inp = wem.get_input()
+    if inp == (True, False, False, False):
+        print("Check 1000 OK")
+    else:
+        print("Check 1000 Failed", inp)
+
+    wem.set_sg_ready_output(0, 0)
+    wem.set_sg_ready_output(1, 1)
+    wem.set_relay_output(0, 0)
+    wem.set_relay_output(1, 0)
+    time.sleep(0.1)
+    inp = wem.get_input()
+    if inp == (False, True, False, False):
+        print("Check 0100 OK")
+    else:
+        print("Check 0100 Failed", inp)
+
+    wem.set_sg_ready_output(0, 0)
+    wem.set_sg_ready_output(1, 0)
+    wem.set_relay_output(0, 1)
+    wem.set_relay_output(1, 0)
+    time.sleep(0.1)
+    inp = wem.get_input()
+    if inp == (False, False, True, False):
+        print("Check 0010 OK")
+    else:
+        print("Check 0010 Failed", inp)
+
+    wem.set_sg_ready_output(0, 0)
+    wem.set_sg_ready_output(1, 0)
+    wem.set_relay_output(0, 0)
+    wem.set_relay_output(1, 1)
+    time.sleep(0.1)
+    inp = wem.get_input()
+    if inp == (False, False, False, True):
+        print("Check 0001 OK")
+    else:
+        print("Check 0001 Failed", inp)
+
+    sd_info = wem.get_sd_information()
+    ret = wem.format_sd(0x4223ABCD)
+    time.sleep(1.5)
+    sd_info2 = wem.get_sd_information()
+    if sd_info == sd_info2:
+        print("SD OK")
+    else:
+        print("SD failed")
