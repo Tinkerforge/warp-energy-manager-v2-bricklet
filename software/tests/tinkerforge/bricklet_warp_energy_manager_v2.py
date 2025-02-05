@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #############################################################
-# This file was automatically generated on 2024-10-08.      #
+# This file was automatically generated on 2024-12-06.      #
 #                                                           #
 # Python Bindings Version 2.1.31                            #
 #                                                           #
@@ -8,8 +8,6 @@
 # please fix the bug in the generator. You can find a link  #
 # to the generators git repository on tinkerforge.com       #
 #############################################################
-
-#### __DEVICE_IS_NOT_RELEASED__ ####
 
 from collections import namedtuple
 
@@ -27,6 +25,7 @@ GetEnergyMeterState = namedtuple('EnergyMeterState', ['energy_meter_type', 'erro
 GetAllData1 = namedtuple('AllData1', ['power', 'current', 'energy_meter_type', 'error_count', 'input', 'output_sg_ready', 'output_relay', 'voltage', 'uptime'])
 GetSDInformation = namedtuple('SDInformation', ['sd_status', 'lfs_status', 'sector_size', 'sector_count', 'card_type', 'product_rev', 'product_name', 'manufacturer_id'])
 GetDateTime = namedtuple('DateTime', ['seconds', 'minutes', 'hours', 'days', 'days_of_week', 'month', 'year'])
+GetDataStorage = namedtuple('DataStorage', ['status', 'data'])
 GetSPITFPErrorCount = namedtuple('SPITFPErrorCount', ['error_count_ack_checksum', 'error_count_message_checksum', 'error_count_frame', 'error_count_overflow'])
 GetIdentity = namedtuple('Identity', ['uid', 'connected_uid', 'position', 'hardware_version', 'firmware_version', 'device_identifier'])
 
@@ -108,6 +107,9 @@ class BrickletWARPEnergyManagerV2(Device):
     LED_PATTERN_ON = 1
     LED_PATTERN_BLINKING = 2
     LED_PATTERN_BREATHING = 3
+    DATA_STORAGE_STATUS_OK = 0
+    DATA_STORAGE_STATUS_NOT_FOUND = 1
+    DATA_STORAGE_STATUS_BUSY = 2
     BOOTLOADER_MODE_BOOTLOADER = 0
     BOOTLOADER_MODE_FIRMWARE = 1
     BOOTLOADER_MODE_BOOTLOADER_WAIT_FOR_REBOOT = 2
@@ -451,7 +453,7 @@ class BrickletWARPEnergyManagerV2(Device):
 
         page = int(page)
 
-        return self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_GET_DATA_STORAGE, (page,), 'B', 71, '63B')
+        return GetDataStorage(*self.ipcon.send_request(self, BrickletWARPEnergyManagerV2.FUNCTION_GET_DATA_STORAGE, (page,), 'B', 72, 'B 63B'))
 
     def set_data_storage(self, page, data):
         r"""
