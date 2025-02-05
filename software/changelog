@@ -1,5 +1,5 @@
 2024-12-06: 2.0.0 (67dde949)
 - Initial version
 
-2025-02-05: 2.0.1 (TBD)
+2025-02-05: 2.0.1 (7c8691b6)
 - Make sure first set_data_storage call is always written to SD card
