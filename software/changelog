@@ -4,5 +4,5 @@
 2025-02-05: 2.0.1 (7c8691b6)
 - Make sure first set_data_storage call is always written to SD card
 
-2025-03-28: 2.0.2 (TBD)
+2025-03-28: 2.0.2 (01dcc5c1)
 - Improve SD card detection reliability (through bricklib2)
