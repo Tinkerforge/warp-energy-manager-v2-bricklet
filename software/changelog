@@ -6,3 +6,6 @@
 
 2025-03-28: 2.0.2 (01dcc5c1)
 - Improve SD card detection reliability (through bricklib2)
+
+2025-04-03: 2.0.3 (TBD)
+- Increase data storge pages from 3 to 5 (through bricklib2)
