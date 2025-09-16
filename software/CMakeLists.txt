@@ -103,3 +103,10 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/src/bricklib2/cmake/configs/config_comcu_add
 
 # add preprocessor defines
 include(${CMAKE_CURRENT_SOURCE_DIR}/src/bricklib2/cmake/configs/config_xmc1_add_preprocessor_defines.txt)
+
+TARGET_LINK_LIBRARIES(${PROJECT_NAME}.elf -lm) # Use lib math (sqrt etc)
+ADD_DEFINITIONS(-DARM_MATH_CM0) # Use CMSIS DSP math support
+
+# warn when double is used and always use single precision for constants.
+# We don't have the space for double in the WARP Energy Manager Bricklet 2.0
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wdouble-promotion -Werror -fsingle-precision-constant")
