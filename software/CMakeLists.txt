@@ -148,7 +148,7 @@ file(GLOB_RECURSE LITTLEFS_SOURCES
 	"${PROJECT_SOURCE_DIR}/src/bricklib2/warp/wem/littlefs/*.c"
 )
 
-# Littlefs uses shadow variables as a regular pattern.
+# Littlefs uses sign-conversion and shadow variables as a regular pattern.
 set_source_files_properties(${LITTLEFS_SOURCES}
 	PROPERTIES COMPILE_FLAGS "-Wno-sign-conversion -Wno-shadow"
 )
