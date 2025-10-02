@@ -129,7 +129,7 @@ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wjump-misses-init")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstack-usage=1024")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wundef")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wshift-overflow=2")
-#SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wsign-conversion")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wsign-conversion")
 
 # Treat warnings as errors in EVSE firmware
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror")
@@ -150,5 +150,5 @@ file(GLOB_RECURSE LITTLEFS_SOURCES
 
 # Littlefs uses shadow variables as a regular pattern.
 set_source_files_properties(${LITTLEFS_SOURCES}
-	PROPERTIES COMPILE_FLAGS "-Wno-shadow"
+	PROPERTIES COMPILE_FLAGS "-Wno-sign-conversion -Wno-shadow"
 )
