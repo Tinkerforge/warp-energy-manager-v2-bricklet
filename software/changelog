@@ -12,3 +12,8 @@
 
 2025-11-03: 2.0.4 (fe2ac708)
 - Add support for dynamic length meter values
+- Add support for WM3M4C
+
+2026-05-13: 2.0.5 (TBD)
+- Add support for WM3M4
+- Make WM3M4C energy register non-resettable
