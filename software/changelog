@@ -14,6 +14,6 @@
 - Add support for dynamic length meter values
 - Add support for WM3M4C
 
-2026-05-13: 2.0.5 (TBD)
+2026-05-13: 2.0.5 (601b907f)
 - Add support for WM3M4
 - Make WM3M4C energy register non-resettable
